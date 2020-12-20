@@ -1,29 +1,22 @@
-import io.ktor.application.call
-import io.ktor.html.respondHtml
-import io.ktor.http.HttpStatusCode
-import io.ktor.routing.get
+import com.fasterxml.jackson.databind.SerializationFeature
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.jackson.*
 import io.ktor.routing.routing
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
-import kotlinx.html.*
+import router.root
 
-fun HTML.index() {
-    head {
-        title("Hello from Ktor!")
-    }
-    body {
-        div {
-            +"Hello from Ktor"
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
+@Suppress("unused") // Referenced in application.conf
+fun Application.module() {
+
+    install(ContentNegotiation) {
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
         }
     }
-}
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "127.0.0.1") {
-        routing {
-            get("/") {
-                call.respondHtml(HttpStatusCode.OK, HTML::index)
-            }
-        }
-    }.start(wait = true)
+    routing {
+        root()
+    }
 }

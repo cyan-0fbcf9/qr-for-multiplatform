@@ -17,9 +17,15 @@ repositories {
 dependencies {
     implementation(project(":common"))
     testImplementation(kotlin("test-junit"))
-    implementation("io.ktor:ktor-server-netty:1.4.0")
-    implementation("io.ktor:ktor-html-builder:1.4.0")
+
+    val ktorVersion = "1.4.3"
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-html-builder:$ktorVersion")
+    implementation("io.ktor:ktor-jackson:$ktorVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.2")
+
+    val logbackVersion = "1.2.1"
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
 }
 
 tasks.test {
@@ -31,5 +37,5 @@ tasks.withType<KotlinCompile>() {
 }
 
 application {
-    mainClassName = "ServerKt"
+    mainClassName = "io.ktor.server.netty.EngineMain"
 }
