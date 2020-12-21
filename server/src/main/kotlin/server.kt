@@ -1,6 +1,7 @@
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
 import io.ktor.features.*
+import io.ktor.http.content.*
 import io.ktor.jackson.*
 import io.ktor.routing.routing
 import router.root
