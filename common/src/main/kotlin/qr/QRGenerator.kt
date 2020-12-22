@@ -6,7 +6,9 @@ import com.google.zxing.qrcode.QRCodeWriter
 import java.awt.image.BufferedImage
 
 class QRGenerator {
-    private val writer: QRCodeWriter = QRCodeWriter()
+    private val writer: QRCodeWriter by lazy {
+        QRCodeWriter()
+    }
 
     fun generate(value: String, size: Int): BufferedImage {
         val bitmap = writer.encode(value, BarcodeFormat.QR_CODE, size, size)
