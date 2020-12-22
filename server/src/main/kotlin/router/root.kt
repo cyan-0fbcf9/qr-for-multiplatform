@@ -12,5 +12,7 @@ fun Routing.root() {
         static()
     }
 
-    api()
+    route("api") {
+        api()
+    }
 }

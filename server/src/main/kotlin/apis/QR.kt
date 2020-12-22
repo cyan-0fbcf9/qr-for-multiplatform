@@ -4,8 +4,8 @@ import qr.QRGenerator
 import java.io.ByteArrayOutputStream
 import javax.imageio.ImageIO
 
-class QR {
-    private val qrGenerator = QRGenerator()
+object QR {
+    private val qrGenerator: QRGenerator = QRGenerator()
 
     fun generate(value: String): ByteArray {
         val qrImage = qrGenerator.generate(value, 512)
