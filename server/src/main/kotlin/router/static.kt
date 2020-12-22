@@ -6,7 +6,9 @@ import router.static
 
 fun Route.static() {
     static {
-        staticBasePackage = "/static"
+        staticBasePackage = "static"
+        // NOTE: scoping all built resources
+        resources(".")
         defaultResource("index.html")
     }
 }
