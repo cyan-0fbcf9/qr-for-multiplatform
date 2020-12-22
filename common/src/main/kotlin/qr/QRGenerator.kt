@@ -6,7 +6,6 @@ import com.google.zxing.qrcode.QRCodeWriter
 import java.awt.image.BufferedImage
 
 class QRGenerator {
-
     private val writer: QRCodeWriter by lazy {
         QRCodeWriter()
     }
