@@ -5,6 +5,7 @@ import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.util.pipeline.*
+import types.ApiErrorResponse
 
 fun Route.qr() {
     get("generate") {
@@ -12,11 +13,15 @@ fun Route.qr() {
         if (value != null) {
             call.respondBytes(apis.QR.generate(value), contentType = ContentType.Image.PNG)
         } else {
-            respondError("query parameters error")
+            respondError(ApiErrorResponse(message = "query parameters error"))
         }
     }
 }
 
 suspend fun PipelineContext<Unit, ApplicationCall>.respondError(message: String) {
-    call.respond(message)
+    call.respond(status = HttpStatusCode.BadRequest, message = message)
+}
+
+suspend fun PipelineContext<Unit, ApplicationCall>.respondError(apiErrorResponse: ApiErrorResponse) {
+    call.respond(status = HttpStatusCode.BadRequest, message = apiErrorResponse)
 }
