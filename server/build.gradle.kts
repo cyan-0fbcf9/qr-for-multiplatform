@@ -27,6 +27,10 @@ dependencies {
 
     val logbackVersion = "1.2.1"
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
+    val daggerVersion = "2.30.1"
+    api("com.google.dagger:dagger:${daggerVersion}")
+    annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
 }
 
 tasks.test {

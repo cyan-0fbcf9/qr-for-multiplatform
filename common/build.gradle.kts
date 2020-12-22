@@ -13,6 +13,10 @@ dependencies {
     implementation("com.google.zxing:javase:${zxingVersion}")
 
     testImplementation(kotlin("test-junit"))
+
+    val daggerVersion = "2.30.1"
+    api("com.google.dagger:dagger:${daggerVersion}")
+    annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
 }
 
 tasks.test {
