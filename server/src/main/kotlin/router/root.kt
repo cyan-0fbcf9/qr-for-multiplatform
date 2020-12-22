@@ -11,4 +11,6 @@ fun Routing.root() {
     route("/") {
         static()
     }
+
+    api()
 }
