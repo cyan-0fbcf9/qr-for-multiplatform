@@ -17,6 +17,8 @@ dependencies {
     val daggerVersion = "2.30.1"
     api("com.google.dagger:dagger:${daggerVersion}")
     annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
 }
 
 tasks.test {
