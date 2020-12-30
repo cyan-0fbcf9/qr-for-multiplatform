@@ -11,10 +11,9 @@ import java.awt.image.ImageObserver
 suspend fun stackImageOnCenter(baseImage: BufferedImage, stackedImage: BufferedImage): Boolean =
     withContext(Dispatchers.Default) {
         val job = Job()
-        job.start()
         val observer = ImageObserver { _, _, _, _, _, _ ->
             job.complete()
-            true
+            false
         }
         val completion = baseImage.createGraphics().drawImage(
             stackedImage,
@@ -22,13 +21,11 @@ suspend fun stackImageOnCenter(baseImage: BufferedImage, stackedImage: BufferedI
             (baseImage.height - stackedImage.height) / 2,
             observer
         )
-        if (completion) job.complete()
-
-        if (!completion) {
-            withTimeoutOrNull(5000) {
+        if (completion)
+            job.complete()
+        else
+            withTimeoutOrNull(3000) {
                 job.join()
             }
-        }
-
         return@withContext job.isCompleted
     }
