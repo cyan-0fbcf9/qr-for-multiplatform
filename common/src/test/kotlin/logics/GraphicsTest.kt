@@ -2,27 +2,27 @@ package logics
 
 import com.google.common.truth.Truth
 import extenstion.toByteArray
-import junit.framework.TestCase
 import kotlinx.coroutines.runBlocking
-import logics.graphics.stackImageOnCenter
+import logics.graphics.RenderingLogic
 import org.junit.Test
 import javax.imageio.ImageIO
 
-class Graphics {
+class GraphicsTest {
     @Test
-    fun testCommonStackImageOnCenterMethod() {
+    fun testStackImageOnCenterMethod(): Unit = runBlocking {
+        val renderingLogics = RenderingLogic()
         val baseImage = ImageIO.read(ClassLoader.getSystemResourceAsStream("base.png"))
         val stackImage = ImageIO.read(ClassLoader.getSystemResourceAsStream("stack.png"))
-        runBlocking {
-            Truth.assertThat(stackImageOnCenter(baseImage, stackImage)).apply {
-                isTrue()
-            }
+        val result = renderingLogics.stackImageOnCenter(baseImage, stackImage)
+        Truth.assertThat(result).apply {
+            isTrue()
         }
     }
 
     @Test
     fun testBufferedImageToByteArray() {
-        val baseImage = ImageIO.read(ClassLoader.getSystemResourceAsStream("base.png"))
+        val baseImage =
+            ImageIO.read(ClassLoader.getSystemResourceAsStream("base.png"))
         Truth.assertThat(baseImage.toByteArray()).apply {
             isInstanceOf(ByteArray::class.java)
         }
