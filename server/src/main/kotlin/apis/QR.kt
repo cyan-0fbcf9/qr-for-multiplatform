@@ -13,6 +13,8 @@ object QR {
     private val renderingLogic: RenderingLogic = RenderingLogic()
     private val transformationLogic: TransformationLogic = TransformationLogic()
 
+    private const val DEFAULT_IMAGE_SIZE = 512
+
     fun generate(value: String): ByteArray {
         val qrImage = qrGenerator.generate(value, 512)
         return qrImage.toByteArray("png")
@@ -23,10 +25,14 @@ object QR {
         val stackedImage =
             HttpService.downloadImage(stackedImageUrl)?.duplicate(specificationType = imageType)
                 ?: throw NullPointerException("returned null")
-        val qrImage = qrGenerator.generate(value, 512).duplicate(specificationType = imageType)
+        val qrImage =
+            qrGenerator.generate(value, DEFAULT_IMAGE_SIZE).duplicate(specificationType = imageType)
         renderingLogic.stackImageOnCenter(
             baseImage = qrImage,
-            stackedImage = transformationLogic.resize(stackedImage, 50)
+            stackedImage = transformationLogic.resize(
+                stackedImage,
+                (DEFAULT_IMAGE_SIZE * 0.2).toInt()
+            )
         )
         return qrImage.toByteArray("png")
     }
