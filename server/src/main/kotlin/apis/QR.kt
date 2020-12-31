@@ -9,14 +9,13 @@ import services.HttpService
 import java.awt.image.BufferedImage
 
 object QR {
+    private const val DEFAULT_IMAGE_SIZE = 512
     private val qrGenerator: QRGenerator = QRGenerator()
     private val renderingLogic: RenderingLogic = RenderingLogic()
     private val transformationLogic: TransformationLogic = TransformationLogic()
 
-    private const val DEFAULT_IMAGE_SIZE = 512
-
     fun generate(value: String): ByteArray {
-        val qrImage = qrGenerator.generate(value, 512)
+        val qrImage = qrGenerator.generate(value, DEFAULT_IMAGE_SIZE)
         return qrImage.toByteArray("png")
     }
 
