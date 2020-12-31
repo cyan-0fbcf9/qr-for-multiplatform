@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.unit.dp
 import extenstion.duplicate
-import logics.graphics.TransformationLogic
 import services.QRService
 import java.awt.image.BufferedImage
 
@@ -25,7 +24,6 @@ fun QRImage(value: String, size: Int = 512) {
 @Composable
 fun QRImage(value: String, stackedImage: BufferedImage, size: Int = 512) {
     val qrService = QRService()
-    val transformationLogic = TransformationLogic()
     val qrImage = remember { mutableStateOf<ImageBitmap?>(null) }
     LaunchedEffect(null) {
         qrImage.value =
