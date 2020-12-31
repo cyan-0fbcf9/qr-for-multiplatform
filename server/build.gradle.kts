@@ -18,6 +18,7 @@ repositories {
 dependencies {
     implementation(project(":common"))
     testImplementation(kotlin("test-junit"))
+    testImplementation("com.google.truth:truth:1.1")
 
     val ktorVersion = "1.4.3"
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
@@ -31,6 +32,9 @@ dependencies {
     val daggerVersion = "2.30.1"
     api("com.google.dagger:dagger:${daggerVersion}")
     annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
+
+    val okhttpVersion = "4.9.0"
+    implementation("com.squareup.okhttp3:okhttp:${okhttpVersion}")
 }
 
 tasks.test {

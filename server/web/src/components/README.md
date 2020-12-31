@@ -4,7 +4,7 @@ You should listen [here](https://vueschool.io/articles/vuejs-tutorials/structuri
 
 ## Structure
 ### ui
-> There is another split point on UI components: those that are reusable across the whole app. They communicate just by using props and events, not holding any application logic.
+> There is another split point on UI components: those that are reusable across the whole app. They communicate just by using props and events, not holding any application logics.
 
 example
 - `Button`
