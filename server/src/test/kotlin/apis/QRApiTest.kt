@@ -1,6 +1,7 @@
 package apis
 
 import com.google.common.truth.Truth
+import kotlinx.coroutines.runBlocking
 import no_test.saveImage
 import org.junit.Test
 
@@ -11,11 +12,18 @@ class QRApiTest {
         Truth.assertThat(generatedImage).apply {
             isInstanceOf(ByteArray::class.java)
         }
-        saveImage(generatedImage, "testGenerateQr", "png")
+        saveImage(generatedImage, QRApiTest::testGenerateQr.toString(), "png")
     }
 
     @Test
-    fun testGenerateQrWithStackedImage() {
-        
+    fun testGenerateQrWithStackedImage(): Unit = runBlocking {
+        val generatedImage = QR.generate(
+            value = "https://google.com",
+            stackedImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin-logo.svg/1200px-Kotlin-logo.svg.png"
+        )
+        Truth.assertThat(generatedImage).apply {
+            isInstanceOf(ByteArray::class.java)
+        }
+        saveImage(generatedImage, QRApiTest::testGenerateQrWithStackedImage.toString(), "png")
     }
 }
