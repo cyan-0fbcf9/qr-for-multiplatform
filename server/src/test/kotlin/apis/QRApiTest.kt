@@ -1,12 +1,8 @@
 package apis
 
 import com.google.common.truth.Truth
+import no_test.saveImage
 import org.junit.Test
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.OutputStreamWriter
-import javax.imageio.ImageIO
 
 class QRApiTest {
     @Test
@@ -15,14 +11,11 @@ class QRApiTest {
         Truth.assertThat(generatedImage).apply {
             isInstanceOf(ByteArray::class.java)
         }
-        FileOutputStream("src/test/resources/outputs/testGenerateQr.png").apply {
-            write(generatedImage)
-            close()
-        }
+        saveImage(generatedImage, "testGenerateQr", "png")
     }
 
     @Test
     fun testGenerateQrWithStackedImage() {
-
+        
     }
 }
