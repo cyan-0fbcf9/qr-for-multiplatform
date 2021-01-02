@@ -34,6 +34,6 @@ fun QRImage(value: String, stackedImage: BufferedImage, size: Int = 512) {
             )
     }
     qrImage.value?.let {
-        Image(it, Modifier.size(512.dp, 512.dp))
+        Image(it, Modifier.size(size.dp))
     }
 }
