@@ -1,17 +1,28 @@
 package services
 
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
-import extenstion.toByteArray
-import org.jetbrains.skija.Image
+import extenstion.duplicate
+import logics.graphics.RenderingLogic
+import logics.graphics.TransformationLogic
 import qr.QRGenerator
+import java.awt.image.BufferedImage
 
 class QRService {
     private val generator = QRGenerator()
+    private val renderingLogic = RenderingLogic()
+    private val transformationLogic = TransformationLogic()
 
-    fun bitmap(value: String, size: Int = 512): ImageBitmap {
-        val byteImg = generator.generate(value, size).toByteArray()
-        val skijaImage = Image.makeFromEncoded(byteImg)
-        return skijaImage.asImageBitmap()
+    suspend fun generate(
+        value: String,
+        size: Int,
+        stackedImage: BufferedImage? = null
+    ): BufferedImage {
+        val qrImage = generator.generate(value, size).duplicate(BufferedImage.TYPE_4BYTE_ABGR)
+        stackedImage?.apply {
+            renderingLogic.stackImageOnCenter(
+                baseImage = qrImage,
+                stackedImage = transformationLogic.resize(this, (size * 0.2).toInt())
+            )
+        }
+        return qrImage
     }
 }

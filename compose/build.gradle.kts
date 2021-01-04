@@ -22,6 +22,13 @@ dependencies {
     val daggerVersion = "2.30.1"
     api("com.google.dagger:dagger:${daggerVersion}")
     annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
+
+    val mviKotlinVersion = "2.0.0"
+    val mviKotlinModuleList =
+        listOf("mvikotlin", "mvikotlin-main", "mvikotlin-extensions-coroutines")
+    mviKotlinModuleList.forEach {
+        implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
+    }
 }
 
 tasks.withType<KotlinCompile>() {

@@ -1,24 +1,23 @@
 import androidx.compose.desktop.Window
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import components.QRImage
-import services.QRService
+import androidx.compose.ui.unit.IntSize
+import components.QRCodeFacility
 
-fun main() = Window {
-    val qrService = QRService()
-
+fun main() = Window(
+    size = IntSize(1200, 700)
+) {
     MaterialTheme {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            QRImage(url = "https://cyan-0fbcf9.com")
+            QRCodeFacility()
         }
     }
 }

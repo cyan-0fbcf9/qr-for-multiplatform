@@ -15,7 +15,14 @@ class TransformationLogic {
             false
         }
         return BufferedImage(width, height, image.type).apply {
-            if (createGraphics().drawImage(image.getScaledInstance(width, height, Image.SCALE_AREA_AVERAGING), 0, 0, observer))
+            if (createGraphics().drawImage(
+                    image.getScaledInstance(
+                        width,
+                        height,
+                        Image.SCALE_SMOOTH
+                    ), 0, 0, observer
+                )
+            )
                 job.complete()
             else
                 try {
