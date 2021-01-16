@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import classes.Color
 import extenstion.duplicate
 import extentions.asImageBitmap
 import services.DialogService
@@ -25,11 +26,11 @@ fun QRCodePresentation(
     value: String,
     size: Int = 512,
     stackedImage: BufferedImage? = null,
+    onColor: Color = Color(0x000000),
+    offColor: Color = Color(0xFFFFFF),
     exportable: Boolean = true
 ) {
     val qrService = QRService()
-    val dialogService = DialogService(AppWindowAmbient.current?.window)
-    val imageIOService = ImageIOService()
     val qrImage = remember { mutableStateOf<BufferedImage?>(null) }
     LaunchedEffect(stackedImage) {
         qrImage.value =
@@ -37,6 +38,8 @@ fun QRCodePresentation(
                 value,
                 size,
                 stackedImage?.duplicate(BufferedImage.TYPE_4BYTE_ABGR),
+                onColor,
+                offColor
             )
     }
 
@@ -48,16 +51,24 @@ fun QRCodePresentation(
             Image(qrImage.asImageBitmap(), Modifier.size(size.dp))
         }
         if (exportable) {
-            Button(
-                onClick = {
-                    val path = dialogService.showSaveFileDialog() ?: return@Button
-                    qrImage.value?.let { image ->
-                        imageIOService.export(image, path)
-                    }
-                }
-            ) {
-                Text("Export")
+            ExportButton(qrImage)
+        }
+    }
+}
+
+@Composable
+fun ExportButton(qrImage: State<BufferedImage?>) {
+    val dialogService = DialogService(AppWindowAmbient.current?.window)
+    val imageIOService = ImageIOService()
+
+    Button(
+        onClick = {
+            val path = dialogService.showSaveFileDialog() ?: return@Button
+            qrImage.value?.let { image ->
+                imageIOService.export(image, path)
             }
         }
+    ) {
+        Text("Export")
     }
 }
