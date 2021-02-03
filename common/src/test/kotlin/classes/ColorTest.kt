@@ -11,6 +11,7 @@ class ColorTest {
         Truth.assertThat(color.red).isEqualTo(0xF0)
         Truth.assertThat(color.green).isEqualTo(0xF0)
         Truth.assertThat(color.blue).isEqualTo(0xF0)
+        Truth.assertThat(color.toRGBHex()).isEqualTo(testValue)
     }
 
     @Test
@@ -34,5 +35,21 @@ class ColorTest {
         Truth.assertThat(colorAlpha2.toBGRAHex().toInt()).isEqualTo(0x705030FF)
         Truth.assertThat(colorAlpha2.toARGBHex()).isEqualTo(0xFF305070)
         Truth.assertThat(colorAlpha2.toABGRHex()).isEqualTo(0xFF705030)
+    }
+
+    @Test
+    fun `ensure Color constructor with hex string`() {
+        val rightValue = 0x5624FF
+        val testValue = "0x5624FF"
+        val testColor = Color(testValue)
+        Truth.assertThat(testColor.toRGBHex()).isEqualTo(rightValue)
+    }
+
+    @Test
+    fun `ensure ColorAlpha constructor with hex string`() {
+        val rightValue = 0xF03293FF
+        val testValue = "0xF03293FF"
+        val testColor = ColorAlpha(testValue)
+        Truth.assertThat(testColor.toRGBAHex()).isEqualTo(rightValue)
     }
 }
