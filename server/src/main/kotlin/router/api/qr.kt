@@ -11,6 +11,8 @@ fun Route.qr() {
     get("generate") {
         val value = call.request.queryParameters["value"]
         val stackedImageUrl = call.request.queryParameters["image"]
+        val onColor = call.request.queryParameters["onColor"]
+        val offColor = call.request.queryParameters["offColor"]
 
         when {
             value != null && stackedImageUrl != null ->
