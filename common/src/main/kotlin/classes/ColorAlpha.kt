@@ -1,5 +1,7 @@
 package classes
 
+import logics.functions.hexToInt
+
 class ColorAlpha : Color {
     val alpha: Float
 
@@ -13,6 +15,10 @@ class ColorAlpha : Color {
 
     constructor(rgbaHex: Long) : super((rgbaHex ushr 8).toInt()) {
         this.alpha = (rgbaHex and 0x000000FF) / 255f
+    }
+
+    constructor(rgbaHexString: String) : super(rgbaHexString.let { it.substring(0, it.length - 2) }) {
+        this.alpha = (hexToInt(rgbaHexString) and 0x000000FF) / 255f
     }
 
     constructor(color: Color) : super(color.red, color.green, color.blue) {
