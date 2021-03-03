@@ -1,5 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.4.20"
@@ -35,6 +35,7 @@ dependencies {
 
     val okhttpVersion = "4.9.0"
     implementation("com.squareup.okhttp3:okhttp:${okhttpVersion}")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
@@ -85,4 +86,12 @@ tasks.register("npmBuild", Exec::class) {
 
 tasks.processResources {
     dependsOn("npmBuild")
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
