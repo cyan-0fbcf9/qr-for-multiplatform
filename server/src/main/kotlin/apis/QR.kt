@@ -2,8 +2,8 @@ package apis
 
 import extenstion.duplicate
 import extenstion.toByteArray
-import logics.graphics.RenderingLogic
-import logics.graphics.TransformationLogic
+import logics.graphics.resize
+import logics.graphics.stackImageOnCenter
 import qr.QRGenerator
 import services.HttpService
 import java.awt.image.BufferedImage
@@ -11,8 +11,6 @@ import java.awt.image.BufferedImage
 object QR {
     private const val DEFAULT_IMAGE_SIZE = 512
     private val qrGenerator: QRGenerator = QRGenerator()
-    private val renderingLogic: RenderingLogic = RenderingLogic()
-    private val transformationLogic: TransformationLogic = TransformationLogic()
 
     fun generate(value: String): ByteArray {
         val qrImage = qrGenerator.generate(value, DEFAULT_IMAGE_SIZE)
@@ -26,9 +24,9 @@ object QR {
                 ?: throw NullPointerException("returned null")
         val qrImage =
             qrGenerator.generate(value, DEFAULT_IMAGE_SIZE).duplicate(specificationType = imageType)
-        renderingLogic.stackImageOnCenter(
+        stackImageOnCenter(
             baseImage = qrImage,
-            stackedImage = transformationLogic.resize(
+            stackedImage = resize(
                 stackedImage,
                 (DEFAULT_IMAGE_SIZE * 0.2).toInt()
             )

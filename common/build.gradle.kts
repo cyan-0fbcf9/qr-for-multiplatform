@@ -20,6 +20,7 @@ dependencies {
     annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
@@ -28,4 +29,15 @@ tasks.test {
 
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "1.8"
+}
+repositories {
+    mavenCentral()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }

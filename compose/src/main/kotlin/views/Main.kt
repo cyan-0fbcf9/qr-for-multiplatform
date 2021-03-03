@@ -21,7 +21,7 @@ fun Main() = Window(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            QRCodeFacility()
+            QRCodeFacility("https://google.com")
         }
     }
 }

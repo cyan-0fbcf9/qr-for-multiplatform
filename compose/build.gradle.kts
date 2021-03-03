@@ -1,4 +1,3 @@
-import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -29,6 +28,7 @@ dependencies {
     mviKotlinModuleList.forEach {
         implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
     }
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.withType<KotlinCompile>() {
@@ -43,4 +43,12 @@ compose.desktop {
             packageName = "compose"
         }
     }
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
