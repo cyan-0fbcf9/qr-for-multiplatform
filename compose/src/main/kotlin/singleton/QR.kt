@@ -1,17 +1,15 @@
-package services
+package singleton
 
 import classes.Color
 import classes.ColorAlpha
 import extenstion.duplicate
-import logics.graphics.RenderingLogic
-import logics.graphics.TransformationLogic
+import logics.graphics.resize
+import logics.graphics.stackImageOnCenter
 import qr.QRGenerator
 import java.awt.image.BufferedImage
 
-class QRService {
+object QR {
     private val generator = QRGenerator()
-    private val renderingLogic = RenderingLogic()
-    private val transformationLogic = TransformationLogic()
 
     suspend fun generate(
         value: String,
@@ -23,9 +21,9 @@ class QRService {
         val qrImage = generator.generate(value, size, ColorAlpha(onColor), ColorAlpha(offColor))
             .duplicate(BufferedImage.TYPE_4BYTE_ABGR)
         stackedImage?.apply {
-            renderingLogic.stackImageOnCenter(
+            stackImageOnCenter(
                 baseImage = qrImage,
-                stackedImage = transformationLogic.resize(this, (size * 0.2).toInt())
+                stackedImage = resize(this, (size * 0.2).toInt())
             )
         }
         return qrImage
