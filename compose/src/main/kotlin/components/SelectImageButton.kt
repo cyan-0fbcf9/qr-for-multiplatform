@@ -2,13 +2,14 @@
 
 package components
 
+import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import functions.showSelectFileDialog
+import openFileSelect
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
@@ -19,7 +20,7 @@ fun SelectImageButton(
 ) {
     Button(
         onClick = {
-            val path = showSelectFileDialog() ?: return@Button
+            val path = openFileSelect(AppManager.focusedWindow?.window) ?: return@Button
             onSelected(ImageIO.read(File(path)))
         },
         modifier = Modifier.padding(10.dp)
