@@ -5,7 +5,7 @@ import extenstion.isSelected
 import java.awt.FileDialog
 import java.awt.Frame
 
-fun showSelectFileDialog(parent: Frame? = null): String? {
+fun showSelectFileDialog(parent: Frame = Frame()): String? {
     val fileDialog = FileDialog(parent, "Select File", FileDialog.LOAD).apply {
         isVisible = true
     }
