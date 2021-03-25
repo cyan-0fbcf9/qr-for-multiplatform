@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.IntSize
 import components.QRCodeFacility
 
 fun Main() = Window(
+    title = "QR",
     size = IntSize(1200, 700)
 ) {
     MaterialTheme {

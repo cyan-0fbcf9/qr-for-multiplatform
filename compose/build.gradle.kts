@@ -1,8 +1,8 @@
+import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.20"
+    kotlin("multiplatform") version "1.4.20"
     id("org.jetbrains.compose") version "0.2.0-build132"
 }
 
@@ -14,26 +14,27 @@ repositories {
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
-dependencies {
-    implementation(project(":common"))
-    implementation(project(":nativeCommon"))
-    implementation(compose.desktop.currentOs)
 
-    val daggerVersion = "2.30.1"
-    api("com.google.dagger:dagger:${daggerVersion}")
-    annotationProcessor("com.google.dagger:dagger-compiler:${daggerVersion}")
+kotlin {
+    jvm()
 
-    val mviKotlinVersion = "2.0.0"
-    val mviKotlinModuleList =
-        listOf("mvikotlin", "mvikotlin-main", "mvikotlin-extensions-coroutines")
-    mviKotlinModuleList.forEach {
-        implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(project(":common"))
+                implementation(project(":nativeCommon"))
+                implementation(compose.desktop.currentOs)
+
+                val mviKotlinVersion = "2.0.0"
+                val mviKotlinModuleList =
+                    listOf("mvikotlin", "mvikotlin-main", "mvikotlin-extensions-coroutines")
+                mviKotlinModuleList.forEach {
+                    implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
+                }
+            }
+        }
     }
-    implementation(kotlin("stdlib-jdk8"))
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "11"
 }
 
 compose.desktop {
@@ -44,12 +45,4 @@ compose.desktop {
             packageName = "compose"
         }
     }
-}
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-    jvmTarget = "1.8"
-}
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "1.8"
 }
