@@ -6,7 +6,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import functions.export
-import functions.showSaveFileDialog
+import openSaveDialog
 import java.awt.Frame
 import java.awt.image.BufferedImage
 
@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage
 fun ExportButton(qrImage: BufferedImage, parentWindow: Frame? = null) {
     Button(
         onClick = {
-            val path = showSaveFileDialog(parentWindow) ?: return@Button
+            val path = openSaveDialog(parentWindow) ?: return@Button
             export(qrImage, path)
         }
     ) {
