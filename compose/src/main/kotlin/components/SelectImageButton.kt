@@ -9,7 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import openFileSelect
+import openSelectDialog
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
@@ -20,7 +20,7 @@ fun SelectImageButton(
 ) {
     Button(
         onClick = {
-            val path = openFileSelect(AppManager.focusedWindow?.window) ?: return@Button
+            val path = openSelectDialog(AppManager.focusedWindow?.window) ?: return@Button
             onSelected(ImageIO.read(File(path)))
         },
         modifier = Modifier.padding(10.dp)
