@@ -21,7 +21,6 @@ kotlin {
     sourceSets {
         val jvmMain by getting {
             dependencies {
-                implementation(compose.desktop.currentOs)
                 implementation(project(":common"))
                 implementation(project(":nativeCommon"))
                 implementation(compose.desktop.currentOs)
@@ -32,6 +31,7 @@ kotlin {
                 mviKotlinModuleList.forEach {
                     implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
                 }
+                implementation(kotlin("stdlib-jdk8"))
             }
         }
     }
