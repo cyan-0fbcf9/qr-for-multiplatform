@@ -6,12 +6,17 @@ import java.io.FilenameFilter
 
 actual fun openSelectDialog(parent: Any?): String? {
     val parentFrame = parent as? Frame ?: throw NullPointerException("")
-    val fileDialog = FileDialog(parentFrame, "ファイル選択", FileDialog.LOAD).apply {
-        filenameFilter = FilenameFilter { _, name ->
-            name.matches(Regex("""^.*\.(png|jpeg|jpg|gif)$"""))
+    val fileDialog = try {
+        FileDialog(parentFrame, "ファイル選択", FileDialog.LOAD).apply {
+            filenameFilter = FilenameFilter { _, name ->
+                name.matches(Regex("""^.*\.(png|jpeg|jpg|gif)$"""))
+            }
+            isVisible = true
         }
-        isVisible = true
+    } catch (e: IllegalArgumentException) {
+        return null
     }
+
     return if (fileDialog.isSelected) fileDialog.filePath else null
 }
 
