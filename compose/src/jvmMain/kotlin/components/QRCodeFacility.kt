@@ -52,7 +52,9 @@ fun QRCodeFacility(
     ) {
         qrImage.value?.let {
             Image(it.asImageBitmap(), Modifier.size(size.dp))
-            SelectImageButton { selectedImage ->
+            SelectImageButton(
+                "重ねる画像を選択"
+            ) { selectedImage ->
                 scope.launch {
                     qrImage.value =
                         QR.generate(
