@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components
+package components.qrCodeScanner.child
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
