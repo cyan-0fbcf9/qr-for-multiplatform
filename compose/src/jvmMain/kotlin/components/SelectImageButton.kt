@@ -16,6 +16,7 @@ import javax.imageio.ImageIO
 
 @Composable
 fun SelectImageButton(
+    title: String,
     onSelected: (BufferedImage) -> Unit
 ) {
     Button(
@@ -25,6 +26,6 @@ fun SelectImageButton(
         },
         modifier = Modifier.padding(10.dp)
     ) {
-        Text("Select Stacked Image")
+        Text(title)
     }
 }

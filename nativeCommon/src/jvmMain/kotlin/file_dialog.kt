@@ -11,6 +11,7 @@ actual fun openSelectDialog(parent: Any?): String? {
             filenameFilter = FilenameFilter { _, name ->
                 name.matches(Regex("""^.*\.(png|jpeg|jpg|gif)$"""))
             }
+            file = "*.png;*.jpeg;*.jpg;*.gif"
             isVisible = true
         }
     } catch (e: IllegalArgumentException) {
