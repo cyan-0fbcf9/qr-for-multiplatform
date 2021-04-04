@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components
+package components.qrCodeScanner
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,9 +9,10 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import components.ScannedText
+import components.SelectImageButton
 import singleton.QR
 import java.awt.image.BufferedImage
-import javax.swing.GroupLayout
 
 @Composable
 fun QRCodeScanner() {

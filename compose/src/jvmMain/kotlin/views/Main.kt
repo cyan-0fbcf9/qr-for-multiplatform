@@ -13,11 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import components.QRCodeFacility
-import components.QRCodeScanner
+import components.qrCodeScanner.QRCodeScanner
 
 fun Main() = Window(
     title = "QR",
