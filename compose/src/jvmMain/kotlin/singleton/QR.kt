@@ -6,10 +6,12 @@ import extenstion.duplicate
 import logics.graphics.resize
 import logics.graphics.stackImageOnCenter
 import qr.QRGenerator
+import qr.QRReader
 import java.awt.image.BufferedImage
 
 object QR {
     private val generator = QRGenerator()
+    private val scanner = QRReader()
 
     suspend fun generate(
         value: String,
@@ -28,4 +30,6 @@ object QR {
         }
         return qrImage
     }
+
+    fun scan(image: BufferedImage): String = this.scanner.read(image)
 }
