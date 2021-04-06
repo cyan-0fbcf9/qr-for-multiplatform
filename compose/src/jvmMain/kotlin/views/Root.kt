@@ -4,7 +4,7 @@ package views
 
 import androidx.compose.ui.window.MenuItem
 import components.common.NonSizeWindow
-import layout.AppTray
+import components.layout.AppTray
 import kotlin.system.exitProcess
 
 fun Root() = NonSizeWindow {

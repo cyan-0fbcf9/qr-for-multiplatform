@@ -10,8 +10,8 @@ example
 - `Button`
 - `List`
 
-### layout
-> The AppFooter and AppHeader components, however, are not exactly UI components. Instead they're more like layout components since the app will have only one footer and header. You don't need to, but you can move them to a layout folder if you want:
+### components.layout
+> The AppFooter and AppHeader components, however, are not exactly UI components. Instead they're more like components.layout components since the app will have only one footer and header. You don't need to, but you can move them to a components.layout folder if you want:
 
 example
 - `Header`
