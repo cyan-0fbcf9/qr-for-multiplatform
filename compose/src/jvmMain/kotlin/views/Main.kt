@@ -14,13 +14,13 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import components.qrCodeFacility.QRCodeFacility
 import components.qrCodeScanner.QRCodeScanner
-import functions.getIcon
+import singleton.AppResource
 import static.APP_NAME
 
 fun Main() = Window(
     title = APP_NAME,
     size = IntSize(1200, 700),
-    icon = getIcon()
+    icon = AppResource.AppIcon
 ) {
     MaterialTheme {
         val tabIndex: MutableState<Int> = remember { mutableStateOf(0) }
