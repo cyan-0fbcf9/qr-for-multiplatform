@@ -2,7 +2,6 @@
 
 package views
 
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.MenuItem
 import components.common.NonSizeWindow
 import layout.AppTray

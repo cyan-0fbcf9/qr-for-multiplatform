@@ -82,10 +82,5 @@ fun QRCodeScanner() {
         warningDialogState.value?.let {
             WarningDialog(it)
         }
-        Button(onClick = {
-            AppManager.exit()
-        }) {
-            Text("Close")
-        }
     }
 }

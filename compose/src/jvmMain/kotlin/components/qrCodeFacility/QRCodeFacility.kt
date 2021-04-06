@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components
+package components.qrCodeFacility
 
 import androidx.compose.desktop.AppWindowAmbient
 import androidx.compose.foundation.Image
@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import classes.Color
+import components.SelectImageButton
 import extenstion.duplicate
 import extentions.asImageBitmap
 import kotlinx.coroutines.launch

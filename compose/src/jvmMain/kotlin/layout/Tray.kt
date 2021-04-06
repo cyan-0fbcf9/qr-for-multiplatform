@@ -7,7 +7,6 @@ import androidx.compose.ui.window.MenuItem
 import androidx.compose.ui.window.Tray
 import static.APP_NAME
 import javax.imageio.ImageIO
-import kotlin.system.exitProcess
 
 @Composable
 fun AppTray(vararg menuItems: MenuItem) {

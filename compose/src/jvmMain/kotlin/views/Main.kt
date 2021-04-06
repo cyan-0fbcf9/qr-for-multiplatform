@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import components.QRCodeFacility
+import components.qrCodeFacility.QRCodeFacility
 import components.qrCodeScanner.QRCodeScanner
 import static.APP_NAME
 
