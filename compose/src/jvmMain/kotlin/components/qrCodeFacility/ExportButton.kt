@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components
+package components.qrCodeFacility
 
 import androidx.compose.material.Button
 import androidx.compose.material.Text

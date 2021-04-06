@@ -4,10 +4,7 @@ package views
 
 import androidx.compose.desktop.Window
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -15,15 +12,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import components.QRCodeFacility
+import components.qrCodeFacility.QRCodeFacility
 import components.qrCodeScanner.QRCodeScanner
+import static.APP_NAME
 
 fun Main() = Window(
-    title = "QR",
-    size = IntSize(1200, 700)
+    title = APP_NAME,
+    size = IntSize(1200, 700),
 ) {
     MaterialTheme {
         val tabIndex: MutableState<Int> = remember { mutableStateOf(0) }
+
         Column(
             verticalArrangement = Arrangement.Top,
         ) {
@@ -56,6 +55,5 @@ fun Main() = Window(
                 }
             }
         }
-
     }
 }

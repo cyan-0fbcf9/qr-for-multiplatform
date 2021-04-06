@@ -2,6 +2,7 @@
 
 package components.qrCodeScanner
 
+import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
@@ -58,6 +59,11 @@ fun QRCodeScanner() {
             try {
                 val image = Toolkit.getDefaultToolkit().systemClipboard.getData(DataFlavor.imageFlavor) as BufferedImage
                 scanImage(image)
+                Toolkit.getDefaultToolkit().systemClipboard.apply {
+                    addFlavorListener {
+                        println(this.getData(DataFlavor.stringFlavor) as String)
+                    }
+                }
             } catch (e: Exception) {
                 warningDialogState.value = WarningDialogInfo(
                     title = "警告",
