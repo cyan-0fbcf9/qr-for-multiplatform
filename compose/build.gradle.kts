@@ -22,7 +22,6 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(project(":common"))
-                implementation(project(":nativeCommon"))
                 implementation(compose.desktop.currentOs)
 
                 val mviKotlinVersion = "2.0.0"
