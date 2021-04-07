@@ -2,7 +2,7 @@
 
 package components.qrCodeFacility
 
-import androidx.compose.desktop.AppWindowAmbient
+import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -52,7 +52,7 @@ fun QRCodeFacility(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         qrImage.value?.let {
-            Image(it.asImageBitmap(), Modifier.size(size.dp))
+            Image(it.asImageBitmap(), null, Modifier.size(size.dp))
             SelectImageButton(
                 "重ねる画像を選択"
             ) { selectedImage ->
@@ -67,7 +67,7 @@ fun QRCodeFacility(
                         )
                 }
             }
-            ExportButton(it, AppWindowAmbient.current?.window)
+            ExportButton(it, AppManager.focusedWindow?.window)
         }
     }
 }
