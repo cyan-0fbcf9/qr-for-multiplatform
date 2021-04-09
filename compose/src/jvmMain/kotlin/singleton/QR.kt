@@ -8,7 +8,6 @@ import logics.graphics.stackImageOnCenter
 import qr.QRGenerator
 import qr.QRReader
 import java.awt.image.BufferedImage
-import kotlin.jvm.Throws
 
 object QR {
     private val generator = QRGenerator()
