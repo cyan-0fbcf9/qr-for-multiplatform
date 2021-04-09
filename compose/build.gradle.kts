@@ -43,7 +43,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "compose"
+            packageName = "QR Screenshot"
             packageVersion = "1.0.0"
 
             windows {
