@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.4.20"
+    kotlin("multiplatform") version "1.4.30"
 }
 
 group = "cyan0fbcf9"
@@ -14,6 +14,7 @@ kotlin {
     *  To find out how to configure the targets, please follow the link:
     *  https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#setting-up-targets */
     macosX64()
+    mingwX64()
     jvm()
 
     sourceSets {

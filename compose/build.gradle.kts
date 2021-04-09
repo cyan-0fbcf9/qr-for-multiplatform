@@ -2,8 +2,8 @@ import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    kotlin("multiplatform") version "1.4.20"
-    id("org.jetbrains.compose") version "0.2.0-build132"
+    kotlin("multiplatform") version "1.4.30"
+    id("org.jetbrains.compose") version "0.3.1"
 }
 
 group = "cyan0fbcf9"
@@ -11,6 +11,7 @@ version = "1.0"
 
 repositories {
     jcenter()
+    mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
@@ -42,7 +43,13 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "compose"
+            packageName = "QR Screenshot"
+            packageVersion = "1.0.0"
+
+            windows {
+                menuGroup = "QR Screenshot"
+                upgradeUuid = "eb5544b4-2b0c-4b73-a54e-409ec4b358b1"
+            }
         }
     }
 }
