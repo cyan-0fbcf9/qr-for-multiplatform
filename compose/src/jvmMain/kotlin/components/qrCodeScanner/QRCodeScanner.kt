@@ -2,7 +2,6 @@
 
 package components.qrCodeScanner
 
-import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
@@ -13,7 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import components.qrCodeScanner.child.ScannedText
-import components.SelectImageButton
+import components.common.SelectImageButton
 import components.common.WarningDialog
 import components.common.WarningDialogInfo
 import singleton.QR

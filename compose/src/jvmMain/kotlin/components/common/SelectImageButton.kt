@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components
+package components.common
 
 import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.layout.padding
