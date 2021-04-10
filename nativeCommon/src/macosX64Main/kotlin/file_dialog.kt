@@ -1,7 +1,4 @@
-import platform.AppKit.NSModalResponseOK
-import platform.AppKit.NSOpenPanel
-import platform.AppKit.NSSavePanel
-import platform.AppKit.showsResizeIndicator
+import platform.AppKit.*
 
 actual fun openSelectDialog(parent: Any?): String? {
     val dialog = NSOpenPanel().apply {
