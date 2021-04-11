@@ -35,6 +35,13 @@ kotlin {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
+
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation("com.google.truth:truth:1.1")
+            }
+        }
     }
 }
 

@@ -14,6 +14,20 @@ import kotlin.concurrent.fixedRateTimer
 // TODO: storeで管理したい
 private var lastQRUri: URI? = null
 
+fun scanAndOpenQR(qrImage: BufferedImage) {
+    try {
+        val scannedValue = QR.scan(qrImage)
+        val uri = URI(scannedValue)
+        Desktop.getDesktop().browse(uri)
+    } catch (e: UnsupportedFlavorException) {
+        return
+    } catch (e: URISyntaxException) {
+        return
+    } catch (e: Exception) {
+        return
+    }
+}
+
 fun setClipboardListener() {
     val osName = System.getProperty("os.name").toLowerCase()
     when {
