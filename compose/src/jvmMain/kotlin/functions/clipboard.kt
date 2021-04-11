@@ -1,6 +1,6 @@
 package functions
 
-import singleton.QR
+import modules.singleton.QR
 import java.awt.Desktop
 import java.awt.Toolkit
 import java.awt.datatransfer.DataFlavor

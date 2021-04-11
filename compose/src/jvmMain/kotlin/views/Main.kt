@@ -3,8 +3,14 @@
 package views
 
 import androidx.compose.desktop.Window
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Tab
+import androidx.compose.material.TabRow
+import androidx.compose.material.Text
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -14,7 +20,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import components.qrCodeFacility.QRCodeFacility
 import components.qrCodeScanner.QRCodeScanner
-import singleton.AppResource
+import modules.singleton.AppResource
 import static.APP_NAME
 
 fun Main() = Window(
