@@ -11,7 +11,7 @@ abstract class ScheduleValueObserverImpl<T>(initValue: T?, interval: Long = 100)
     /**
      * @return 値を更新したらtrue, それ以外はfalse
      */
-    protected fun tryUpdating(newValue: T): Boolean = when {
+    override fun tryUpdating(newValue: T): Boolean = when {
         latestValue == null -> {
             lazyInitValue(newValue)
             false
