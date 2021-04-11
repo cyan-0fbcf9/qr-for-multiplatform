@@ -11,11 +11,11 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import components.qrCodeScanner.child.ScannedText
 import components.common.SelectImageButton
 import components.common.WarningDialog
 import components.common.WarningDialogInfo
-import singleton.QR
+import components.qrCodeScanner.child.ScannedText
+import modules.singleton.QR
 import java.awt.Toolkit
 import java.awt.datatransfer.DataFlavor
 import java.awt.image.BufferedImage
@@ -56,7 +56,8 @@ fun QRCodeScanner() {
         }
         Button(onClick = {
             try {
-                val image = Toolkit.getDefaultToolkit().systemClipboard.getData(DataFlavor.imageFlavor) as BufferedImage
+                val image =
+                    Toolkit.getDefaultToolkit().systemClipboard.getData(DataFlavor.imageFlavor) as BufferedImage
                 scanImage(image)
                 Toolkit.getDefaultToolkit().systemClipboard.apply {
                     addFlavorListener {

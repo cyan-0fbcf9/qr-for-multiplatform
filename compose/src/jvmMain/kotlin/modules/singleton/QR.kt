@@ -1,4 +1,4 @@
-package singleton
+package modules.singleton
 
 import classes.Color
 import classes.ColorAlpha
@@ -32,5 +32,5 @@ object QR {
     }
 
     @Throws(Exception::class)
-    fun scan(image: BufferedImage): String = this.scanner.read(image)
+    fun scan(image: BufferedImage): String = scanner.read(image)
 }

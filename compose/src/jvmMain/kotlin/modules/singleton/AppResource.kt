@@ -1,4 +1,4 @@
-package singleton
+package modules.singleton
 
 import java.awt.image.BufferedImage
 import javax.imageio.ImageIO

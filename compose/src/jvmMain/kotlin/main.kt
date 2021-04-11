@@ -1,12 +1,13 @@
 import androidx.compose.desktop.AppManager
-import functions.setClipboardListener
+import functions.scanAndOpenQR
+import modules.singleton.AppService
 import views.Root
 import javax.swing.SwingUtilities
 
 fun main() {
     AppManager.setEvents(
         onAppStart = {
-            setClipboardListener()
+            AppService.clipImgObserver.setChangedListener(::scanAndOpenQR)
         },
         onWindowsEmpty = {
             // NOTE: ウィンドウが閉じてもプログラムを終了させない

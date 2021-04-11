@@ -20,7 +20,7 @@ import components.common.SelectImageButton
 import extenstion.duplicate
 import extentions.asImageBitmap
 import kotlinx.coroutines.launch
-import singleton.QR
+import modules.singleton.QR
 import java.awt.image.BufferedImage
 
 @Composable
