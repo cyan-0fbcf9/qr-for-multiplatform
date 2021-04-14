@@ -13,9 +13,7 @@ abstract class ValueObserverImpl<T>(protected val initValue: T?) : ValueObserver
      * 初期値をインスタンス生成後に行う場合のみ有効
      */
     protected open fun lazyInitValue(initValue: T) {
-        if (value == null) {
-            _value = initValue
-        }
+        _value = initValue
     }
 
     protected open fun update(newValue: T) {
@@ -29,10 +27,6 @@ abstract class ValueObserverImpl<T>(protected val initValue: T?) : ValueObserver
      * @return 値を更新したらtrue, それ以外はfalse
      */
     protected open fun tryUpdating(newValue: T): Boolean = when {
-        latestValue == initValue -> {
-            lazyInitValue(newValue)
-            false
-        }
         latestValue != newValue -> {
             update(newValue)
             true

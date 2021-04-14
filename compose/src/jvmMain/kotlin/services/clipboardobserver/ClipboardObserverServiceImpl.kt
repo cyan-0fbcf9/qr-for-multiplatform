@@ -2,13 +2,11 @@ package services.clipboardobserver
 
 import modules.observer.ClipboardObserverImpl
 import services.clipboard.ClipboardService
-import java.awt.Toolkit
 
-abstract class ClipboardObserverServiceImpl<T>() : ClipboardObserverImpl<T>() {
-    protected val clipService: ClipboardService = ClipboardService(
-        clipboard = Toolkit.getDefaultToolkit().systemClipboard,
-        onFlavorListener = {
+abstract class ClipboardObserverServiceImpl<T>(val clipboardService: ClipboardService, initValue: T? = null) : ClipboardObserverImpl<T>(initValue) {
+    init {
+        clipboardService.addFlavorListener {
             this::onChangedFlavor.invoke()
         }
-    )
+    }
 }
