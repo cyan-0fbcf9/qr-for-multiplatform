@@ -8,6 +8,7 @@ fun main() {
     AppManager.setEvents(
         onAppStart = {
             AppService.clipImgObserver.setChangedListener(::scanAndOpenQR)
+            AppService.clipImgObserver.start()
         },
         onWindowsEmpty = {
             // NOTE: ウィンドウが閉じてもプログラムを終了させない

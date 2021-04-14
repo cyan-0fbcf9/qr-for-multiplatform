@@ -23,4 +23,8 @@ class ClipboardImageObserverService : ClipboardObserverServiceImpl<BufferedImage
             false
         }
     }
+
+    override fun beforeStartingSchedule() {
+        super.beforeStartingSchedule()
+    }
 }

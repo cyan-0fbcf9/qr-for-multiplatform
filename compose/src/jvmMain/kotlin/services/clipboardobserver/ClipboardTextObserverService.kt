@@ -7,4 +7,8 @@ class ClipboardTextObserverService : ClipboardObserverServiceImpl<String>() {
         val text = clipService.getString() ?: return
         tryUpdating(newValue = text)
     }
+
+    override fun beforeStartingSchedule() {
+        super.beforeStartingSchedule()
+    }
 }
