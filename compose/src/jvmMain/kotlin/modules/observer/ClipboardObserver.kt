@@ -1,5 +1,5 @@
 package modules.observer
 
-interface ClipboardObserver {
+interface ClipboardObserver<T>: ValueObserver<T> {
     fun onChangedFlavor() {}
 }
