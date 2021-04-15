@@ -2,6 +2,7 @@ package services.clipboard
 
 import java.awt.datatransfer.Clipboard
 import java.awt.datatransfer.DataFlavor
+import java.awt.datatransfer.FlavorListener
 import java.awt.image.BufferedImage
 import java.awt.image.MultiResolutionImage
 
@@ -31,5 +32,9 @@ abstract class ClipboardServiceableImpl(private val clipboard: Clipboard) : Clip
         } catch (e: Exception) {
             return null
         }
+    }
+
+    fun addFlavorListener(listener: FlavorListener) {
+        clipboard.addFlavorListener(listener)
     }
 }

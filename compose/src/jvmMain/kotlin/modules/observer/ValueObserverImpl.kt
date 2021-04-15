@@ -1,6 +1,6 @@
 package modules.observer
 
-abstract class ValueObserverImpl<T>(initValue: T?) : ValueObserver<T> {
+abstract class ValueObserverImpl<T>(protected val initValue: T?) : ValueObserver<T> {
     private var _value: T? = initValue
     private val listeners: MutableList<(T) -> Unit> = mutableListOf()
 
@@ -12,16 +12,27 @@ abstract class ValueObserverImpl<T>(initValue: T?) : ValueObserver<T> {
     /**
      * 初期値をインスタンス生成後に行う場合のみ有効
      */
-    protected fun lazyInitValue(initValue: T) {
-        if (value == null) {
-            _value = initValue
-        }
+    protected open fun lazyInitValue(initValue: T) {
+        _value = initValue
     }
 
-    protected fun update(newValue: T) {
+    protected open fun update(newValue: T) {
         _value = newValue
         listeners.forEach { listener ->
             listener(newValue)
+        }
+    }
+
+    /**
+     * @return 値を更新したらtrue, それ以外はfalse
+     */
+    protected open fun tryUpdating(newValue: T): Boolean = when {
+        latestValue != newValue -> {
+            update(newValue)
+            true
+        }
+        else -> {
+            false
         }
     }
 
