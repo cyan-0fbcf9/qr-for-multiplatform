@@ -1,6 +1,6 @@
 import androidx.compose.desktop.AppManager
 import functions.scanAndOpenQR
-import modules.singleton.AppService
+import app.AppService
 import views.Root
 import javax.swing.SwingUtilities
 

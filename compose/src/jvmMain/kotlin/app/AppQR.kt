@@ -1,4 +1,4 @@
-package modules.singleton
+package app
 
 import classes.Color
 import classes.ColorAlpha
@@ -9,7 +9,7 @@ import qr.QRGenerator
 import qr.QRReader
 import java.awt.image.BufferedImage
 
-object QR {
+object AppQR {
     private val generator = QRGenerator()
     private val scanner = QRReader()
 
