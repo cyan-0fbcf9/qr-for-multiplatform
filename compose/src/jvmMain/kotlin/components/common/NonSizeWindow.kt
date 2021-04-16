@@ -7,7 +7,7 @@ import androidx.compose.desktop.Window
 import androidx.compose.desktop.WindowEvents
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.IntSize
-import modules.singleton.AppResource
+import app.AppResource
 
 fun NonSizeWindow(content: @Composable () -> Unit) {
     Window(

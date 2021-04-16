@@ -1,4 +1,4 @@
-package modules.singleton
+package app
 
 import services.clipboard.ClipboardService
 import services.clipboardobserver.ClipboardImageObserverService

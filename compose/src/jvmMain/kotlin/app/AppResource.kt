@@ -1,4 +1,4 @@
-package modules.singleton
+package app
 
 import osJunction
 import java.awt.image.BufferedImage

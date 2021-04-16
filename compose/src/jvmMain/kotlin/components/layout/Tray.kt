@@ -5,7 +5,7 @@ package components.layout
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.MenuItem
 import androidx.compose.ui.window.Tray
-import modules.singleton.AppResource
+import app.AppResource
 import static.APP_NAME
 
 @Composable

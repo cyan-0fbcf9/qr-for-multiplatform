@@ -15,7 +15,7 @@ import components.common.SelectImageButton
 import components.common.WarningDialog
 import components.common.WarningDialogInfo
 import components.qrCodeScanner.child.ScannedText
-import modules.singleton.QR
+import app.AppQR
 import java.awt.Toolkit
 import java.awt.datatransfer.DataFlavor
 import java.awt.image.BufferedImage
@@ -29,7 +29,7 @@ fun QRCodeScanner() {
     val scanImage: (BufferedImage) -> Unit = { image ->
         targetImageState.value = image
         runCatching {
-            QR.scan(image)
+            AppQR.scan(image)
         }.fold(
             onSuccess = { scannedText ->
                 scannedTextState.value = scannedText

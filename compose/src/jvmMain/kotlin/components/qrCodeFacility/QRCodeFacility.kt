@@ -20,7 +20,7 @@ import components.common.SelectImageButton
 import extenstion.duplicate
 import extentions.asImageBitmap
 import kotlinx.coroutines.launch
-import modules.singleton.QR
+import app.AppQR
 import java.awt.image.BufferedImage
 
 @Composable
@@ -36,7 +36,7 @@ fun QRCodeFacility(
     // initialize
     if (qrImage.value == null) {
         scope.launch {
-            qrImage.value = QR.generate(
+            qrImage.value = AppQR.generate(
                 value,
                 size,
                 null,
@@ -58,7 +58,7 @@ fun QRCodeFacility(
             ) { selectedImage ->
                 scope.launch {
                     qrImage.value =
-                        QR.generate(
+                        AppQR.generate(
                             value,
                             size,
                             selectedImage.duplicate(BufferedImage.TYPE_4BYTE_ABGR),

@@ -20,11 +20,11 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import components.qrCodeFacility.QRCodeFacility
 import components.qrCodeScanner.QRCodeScanner
-import modules.singleton.AppResource
-import static.APP_NAME
+import app.AppResource
+import app.AppWindows
 
-fun Main() = Window(
-    title = APP_NAME,
+fun QRScreenshot() = Window(
+    title = AppWindows.DefinedWindow.QR_SCREENSHOT,
     size = IntSize(1200, 700),
     icon = AppResource.AppIcon
 ) {
