@@ -22,13 +22,18 @@ import androidx.compose.ui.unit.sp
 import app.AppResource
 import app.AppWindows
 import components.theme.AppTheme
+import components.usage.UsageBody
+import components.usage.UsageHeading2
+import components.usage.UsageSubBody
+import components.usage.UsageTitle
 import static.APP_NAME
+import static.SHORTCUT_DESCRIPTION
 import static.USAGE_DESCRIPTION
 import static.USAGE_SUBTITLE
 
 fun Usage() = Window(
     title = AppWindows.DefinedWindow.USAGE,
-    size = IntSize(480, 550),
+    size = IntSize(480, 580),
     icon = AppResource.AppIcon,
     resizable = false,
 ) {
@@ -43,26 +48,16 @@ fun Usage() = Window(
                 contentDescription = null,
                 modifier = Modifier.size(180.dp)
             )
-            Text(APP_NAME, style = MaterialTheme.typography.h4)
-            Text(
-                USAGE_SUBTITLE,
-                modifier = Modifier.padding(vertical = 8.dp),
-                style = MaterialTheme.typography.subtitle1
-            )
+            UsageTitle(APP_NAME)
+            UsageBody(USAGE_SUBTITLE)
             Column(
                 modifier = Modifier.padding(vertical = 10.dp)
             ) {
-                Text(
-                    "使い方",
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
-                    style = MaterialTheme.typography.h6,
-                    color = Color.DarkGray
-                )
-                Text(
-                    USAGE_DESCRIPTION,
-                    style = MaterialTheme.typography.body1,
-                    color = Color.DarkGray
-                )
+                UsageHeading2("使い方")
+                UsageBody(USAGE_DESCRIPTION)
+                UsageHeading2("ショートカット")
+                UsageBody(SHORTCUT_DESCRIPTION ?: "")
+                UsageSubBody("＊環境によってショートカットキーが違う場合があります")
             }
         }
     }
