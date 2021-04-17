@@ -45,7 +45,7 @@ fun UsageHeading1(text: String) {
 fun UsageHeading2(text: String) {
     Text(
         text,
-        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+        modifier = Modifier.fillMaxWidth().padding(top = 16.dp, end = 10.dp),
         style = TextStyle(
             color = FONT_COLOR,
             fontSize = 22.sp,
@@ -62,7 +62,7 @@ fun UsageBody(text: String) {
             color = FONT_COLOR,
             fontSize = 16.sp,
         ),
-        color = Color.DarkGray
+        color = MaterialTheme.colors.secondary
     )
 }
 
