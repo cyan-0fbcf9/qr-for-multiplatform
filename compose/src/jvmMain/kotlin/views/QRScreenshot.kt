@@ -19,8 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import components.qrCodeFacility.QRCodeFacility
-import components.qrCodeScanner.QRCodeScanner
+import components.qrcodefacility.QRCodeFacility
+import components.qrcodescanner.QRCodeScanner
 import app.AppResource
 import app.AppWindows
 import components.theme.AppTheme

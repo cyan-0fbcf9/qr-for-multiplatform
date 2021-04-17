@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components.qrCodeScanner
+package components.qrcodescanner
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,7 +14,7 @@ import androidx.compose.ui.Alignment
 import components.common.SelectImageButton
 import components.common.WarningDialog
 import components.common.WarningDialogInfo
-import components.qrCodeScanner.child.ScannedText
+import components.qrcodescanner.child.ScannedText
 import app.AppQR
 import java.awt.Toolkit
 import java.awt.datatransfer.DataFlavor
