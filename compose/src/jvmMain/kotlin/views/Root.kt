@@ -11,7 +11,7 @@ import kotlin.system.exitProcess
 fun Root() = NonSizeWindow {
     AppTray(
         MenuItem(
-            name = "Usage",
+            name = "使い方",
             onClick = {
                 AppWindows.viewUsage()
             }
@@ -24,7 +24,7 @@ fun Root() = NonSizeWindow {
 //            }
 //        ),
         MenuItem(
-            name = "Exit",
+            name = "終了",
             onClick = {
                 exitProcess(0)
             }
