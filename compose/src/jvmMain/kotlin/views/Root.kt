@@ -3,9 +3,9 @@
 package views
 
 import androidx.compose.ui.window.MenuItem
+import app.AppWindows
 import components.common.NonSizeWindow
 import components.layout.AppTray
-import app.AppWindows
 import kotlin.system.exitProcess
 
 fun Root() = NonSizeWindow {
@@ -16,12 +16,13 @@ fun Root() = NonSizeWindow {
                 AppWindows.viewUsage()
             }
         ),
-        MenuItem(
-            name = "QR Tool",
-            onClick = {
-                AppWindows.viewQRScreenshot()
-            }
-        ),
+        // NOTE: いずれ復活させる
+//        MenuItem(
+//            name = "QR Tool",
+//            onClick = {
+//                AppWindows.viewQRScreenshot()
+//            }
+//        ),
         MenuItem(
             name = "Exit",
             onClick = {
