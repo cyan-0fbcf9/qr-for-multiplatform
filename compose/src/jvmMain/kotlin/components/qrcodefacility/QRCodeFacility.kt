@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package components.qrCodeFacility
+package components.qrcodefacility
 
 import androidx.compose.desktop.AppManager
 import androidx.compose.foundation.Image

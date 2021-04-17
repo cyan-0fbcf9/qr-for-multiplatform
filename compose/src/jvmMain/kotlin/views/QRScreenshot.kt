@@ -3,6 +3,7 @@
 package views
 
 import androidx.compose.desktop.Window
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,21 +19,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import components.qrCodeFacility.QRCodeFacility
-import components.qrCodeScanner.QRCodeScanner
+import components.qrcodefacility.QRCodeFacility
+import components.qrcodescanner.QRCodeScanner
 import app.AppResource
 import app.AppWindows
+import components.theme.AppTheme
 
 fun QRScreenshot() = Window(
     title = AppWindows.DefinedWindow.QR_SCREENSHOT,
     size = IntSize(1200, 700),
-    icon = AppResource.AppIcon
+    icon = AppResource.AppIcon,
 ) {
-    MaterialTheme {
+    AppTheme {
         val tabIndex: MutableState<Int> = remember { mutableStateOf(0) }
 
         Column(
             verticalArrangement = Arrangement.Top,
+            modifier = Modifier.background(MaterialTheme.colors.background)
         ) {
             TabRow(
                 selectedTabIndex = tabIndex.value,
