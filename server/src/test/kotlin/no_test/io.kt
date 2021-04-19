@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage
 import java.io.File
 import java.io.FileOutputStream
 
-const val outputsDir = "src/test/resources/outputs/"
+val outputsDir: String = ClassLoader.getSystemResource("").path
 
 fun saveImage(image: ByteArray, fileName: String, extension: String) {
     FileOutputStream(File("${outputsDir}${fileName}.$extension")).apply {

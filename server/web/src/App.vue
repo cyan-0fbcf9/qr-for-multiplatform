@@ -16,6 +16,10 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+      },
+      {
+        rel: 'icon',
+        href: '@/assets/logo.png'
       }
     ]
   }

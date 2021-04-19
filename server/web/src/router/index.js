@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 // import Home from '@/pages/Home.vue';
-import Download from "@/pages/Download";
+import Download from '@/pages/Download';
 
 Vue.use(VueRouter);
 
