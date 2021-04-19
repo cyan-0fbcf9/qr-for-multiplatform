@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.4.30"
     application
+    id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
 group = "cyan0fbcf9"
