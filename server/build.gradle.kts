@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.4.30"
     application
+    id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
 group = "cyan0fbcf9"
@@ -81,6 +82,13 @@ tasks.register("npmBuild", Exec::class) {
 
     dependsOn("npmLint")
     val npmCommand = "npm --prefix ${projectDir}/web run build"
+    execCommand(npmCommand)
+}
+
+tasks.register("deployGAE", Exec::class) {
+    dependsOn("npmBuild")
+    dependsOn("shadowJar")
+    val npmCommand = "gcloud app deploy ${projectDir}/build/libs/server-1.0-all.jar"
     execCommand(npmCommand)
 }
 
