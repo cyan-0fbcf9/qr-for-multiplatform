@@ -7,7 +7,7 @@ import io.ktor.routing.*
 import types.ApiErrorResponse
 import types.CheckUpdatingResponse
 
-const val LATEST_VERSION = "1.0.0-alpha01"
+const val LATEST_VERSION = "1.0.0"
 
 fun Route.update() {
     get("check") {

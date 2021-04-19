@@ -11,6 +11,12 @@ import kotlin.system.exitProcess
 fun Root() = NonSizeWindow {
     AppTray(
         MenuItem(
+            name = "アップデート確認",
+            onClick = {
+                AppWindows.viewUpdating()
+            }
+        ),
+        MenuItem(
             name = "使い方",
             onClick = {
                 AppWindows.viewUsage()
