@@ -85,6 +85,13 @@ tasks.register("npmBuild", Exec::class) {
     execCommand(npmCommand)
 }
 
+tasks.register("deployGAE", Exec::class) {
+    dependsOn("npmBuild")
+    dependsOn("shadowJar")
+    val npmCommand = "gcloud app deploy ${projectDir}/build/libs/server-1.0-all.jar"
+    execCommand(npmCommand)
+}
+
 tasks.processResources {
     dependsOn("npmBuild")
 }
