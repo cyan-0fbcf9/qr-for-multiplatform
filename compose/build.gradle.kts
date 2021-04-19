@@ -1,5 +1,6 @@
 import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import java.io.*
 
 plugins {
     kotlin("multiplatform") version "1.4.30"
@@ -7,7 +8,7 @@ plugins {
 }
 
 group = "cyan0fbcf9"
-version = "1.0"
+version = "1.0.0"
 
 repositories {
     jcenter()
@@ -51,7 +52,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "QR-Screenshot"
-            packageVersion = "1.0.0"
+            packageVersion = getVersion() as String
 
             windows {
                 menuGroup = "QR Screenshot"
@@ -59,4 +60,15 @@ compose.desktop {
             }
         }
     }
+}
+
+tasks.register("writeVersion", Task::class) {
+    FileWriter(File("${projectDir}/src/jvmMain/resources/common/version.txt")).apply {
+        write(version as String)
+        close()
+    }
+}
+
+tasks.build {
+    dependsOn("writeVersion")
 }
