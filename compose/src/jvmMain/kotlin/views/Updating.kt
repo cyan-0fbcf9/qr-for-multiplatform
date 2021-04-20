@@ -9,6 +9,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,6 +22,9 @@ import app.AppWindows
 import components.theme.AppTheme
 import components.theme.FONT_COLOR
 import functions.getVersion
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import static.url.SITE
 import java.awt.Desktop
 import java.lang.Exception
@@ -34,6 +38,7 @@ fun Updating() = Window(
 ) {
     val indicatorVisibilityState: MutableState<Boolean> = remember { mutableStateOf(false) }
     val existLatestVersion: MutableState<Boolean?> = remember { mutableStateOf(null) }
+    val coroutineScope = rememberCoroutineScope()
 
     AppTheme {
         Column(
@@ -55,14 +60,18 @@ fun Updating() = Window(
             }
             Button(
                 onClick = {
-                    indicatorVisibilityState.value = true
-                    existLatestVersion.value = try {
-                        AppService.httpService.apiRequests.checkUpdate(getVersion() ?: "")
-                    } catch (e: Exception) {
-                        // TODO("Log")
-                        false
-                    } finally {
-                        indicatorVisibilityState.value = false
+                    coroutineScope.launch {
+                        withContext(Dispatchers.IO) {
+                            indicatorVisibilityState.value = true
+                            existLatestVersion.value = try {
+                                AppService.httpService.apiRequests.checkUpdate(getVersion() ?: "")
+                            } catch (e: Exception) {
+                                // TODO("Log")
+                                false
+                            } finally {
+                                indicatorVisibilityState.value = false
+                            }
+                        }
                     }
                 }
             ) {

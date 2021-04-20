@@ -36,6 +36,7 @@ kotlin {
                 implementation(kotlin("stdlib-jdk8"))
                 implementation("com.squareup.okhttp3:okhttp:4.9.0")
                 implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.+")
+                implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
             }
         }
 
