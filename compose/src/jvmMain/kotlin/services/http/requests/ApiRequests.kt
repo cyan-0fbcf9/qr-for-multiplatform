@@ -15,7 +15,7 @@ class ApiRequests(private val httpService: HttpService) {
     @Throws(Exception::class)
     suspend fun checkUpdate(currentVersion: String): Boolean {
         val request = Request.Builder().apply {
-            url(ENDPOINT.CHECK_UPDATING(currentVersion + "hoge"))
+            url(ENDPOINT.CHECK_UPDATING(currentVersion))
         }.build()
         val responseBody = httpService.execute(request)?.body ?: throw Exception("request error")
         val checkUpdatingResponse =
