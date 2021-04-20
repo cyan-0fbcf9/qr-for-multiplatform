@@ -1,5 +1,6 @@
 package router.api
 
+import common.respondError
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.response.*
@@ -26,12 +27,4 @@ fun Route.qr() {
             else -> respondError(ApiErrorResponse(message = "query parameters error"))
         }
     }
-}
-
-suspend fun PipelineContext<Unit, ApplicationCall>.respondError(message: String) {
-    call.respond(status = HttpStatusCode.BadRequest, message = message)
-}
-
-suspend fun PipelineContext<Unit, ApplicationCall>.respondError(apiErrorResponse: ApiErrorResponse) {
-    call.respond(status = HttpStatusCode.BadRequest, message = apiErrorResponse)
 }

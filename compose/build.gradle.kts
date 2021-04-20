@@ -1,5 +1,6 @@
 import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import java.io.*
 
 plugins {
     kotlin("multiplatform") version "1.4.30"
@@ -7,7 +8,7 @@ plugins {
 }
 
 group = "cyan0fbcf9"
-version = "1.0"
+version = "1.0.0"
 
 repositories {
     jcenter()
@@ -33,6 +34,9 @@ kotlin {
                     implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
                 }
                 implementation(kotlin("stdlib-jdk8"))
+                implementation("com.squareup.okhttp3:okhttp:4.9.0")
+                implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.+")
+                implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
             }
         }
 
@@ -51,7 +55,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "QR-Screenshot"
-            packageVersion = "1.0.0"
+            packageVersion = getVersion() as String
 
             windows {
                 menuGroup = "QR Screenshot"
@@ -59,4 +63,15 @@ compose.desktop {
             }
         }
     }
+}
+
+tasks.register("writeVersion", Task::class) {
+    FileWriter(File("${projectDir}/src/jvmMain/resources/common/version.txt")).apply {
+        write(version as String)
+        close()
+    }
+}
+
+tasks.build {
+    dependsOn("writeVersion")
 }
