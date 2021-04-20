@@ -34,6 +34,8 @@ kotlin {
                     implementation("com.arkivanov.mvikotlin:${it}:${mviKotlinVersion}")
                 }
                 implementation(kotlin("stdlib-jdk8"))
+                implementation("com.squareup.okhttp3:okhttp:4.9.0")
+                implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.+")
             }
         }
 
