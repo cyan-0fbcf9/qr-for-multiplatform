@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import static.url.SITE
 import java.awt.Desktop
-import java.lang.Exception
 import java.net.URI
 
 fun Updating() = Window(
@@ -46,7 +45,7 @@ fun Updating() = Window(
             modifier = Modifier.padding(30.dp).fillMaxSize(),
         ) {
             Image(
-                bitmap = imageResource("images/icon.png"),
+                bitmap = imageResource("assets/icon/common/icon.png"),
                 contentDescription = null,
                 modifier = Modifier.size(120.dp)
             )

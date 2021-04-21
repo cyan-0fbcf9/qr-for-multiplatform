@@ -64,7 +64,7 @@ compose.desktop {
             }
 
             macOS {
-                iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/icon.icns"))
+                iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/macos/icon.icns"))
                 bundleID = "com.cyan-namid09.qrscrennshot"
                 signing {
                     sign.set(true)
