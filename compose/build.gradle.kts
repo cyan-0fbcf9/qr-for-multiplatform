@@ -61,6 +61,7 @@ compose.desktop {
             windows {
                 menuGroup = "QR Screenshot"
                 upgradeUuid = "eb5544b4-2b0c-4b73-a54e-409ec4b358b1"
+                iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/windows/icon.ico"))
             }
 
             macOS {
