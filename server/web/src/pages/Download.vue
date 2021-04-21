@@ -18,7 +18,7 @@
           <div class="link-for-macos download-link">
             <div class="platform-target">macOS</div>
             <a
-              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR-Screenshot-1.0.0.dmg"
+              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR%20Screenshot-1.0.0.dmg"
               target="_blank"
             >
               <span class="material-icons">file_download</span>
@@ -28,7 +28,7 @@
           <div class="link-for-windows download-link">
             <div class="platform-target">Windows</div>
             <a
-              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR-Screenshot-1.0.0.msi"
+              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR%20Screenshot-1.0.0.msi"
               target="_blank"
             >
               <span class="material-icons">file_download</span>
