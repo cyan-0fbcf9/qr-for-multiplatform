@@ -65,7 +65,7 @@ compose.desktop {
             }
 
             macOS {
-                packageName = """'QR Screenshot'"""
+                packageName = "QRScreenshot"
                 iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/macos/icon.icns"))
                 bundleID = "com.cyan-namid09.qrscrennshot"
                 signing {
