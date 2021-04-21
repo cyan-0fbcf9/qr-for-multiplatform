@@ -17,14 +17,20 @@
         <div class="download-link-wrapper">
           <div class="link-for-macos download-link">
             <div class="platform-target">macOS</div>
-            <a href="#" target="_blank">
+            <a
+              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR-Screenshot-1.0.0.dmg"
+              target="_blank"
+            >
               <span class="material-icons">file_download</span>
               <span class="package-name">dmg</span>
             </a>
           </div>
           <div class="link-for-windows download-link">
             <div class="platform-target">Windows</div>
-            <a href="#" target="_blank">
+            <a
+              href="https://storage.googleapis.com/qrscreenshot-app-storage/packages/QR-Screenshot-1.0.0.msi"
+              target="_blank"
+            >
               <span class="material-icons">file_download</span>
               <span class="package-name">msi</span>
             </a>
