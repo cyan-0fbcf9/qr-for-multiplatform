@@ -1,6 +1,6 @@
 import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import java.io.*
+import java.io.FileWriter
 
 plugins {
     kotlin("multiplatform") version "1.4.30"
@@ -54,12 +54,28 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "QR-Screenshot"
+            packageName = "QR Screenshot"
             packageVersion = getVersion() as String
+            copyright = "© 2021 Hiroyasu Niitsuma. All rights reserved."
 
             windows {
                 menuGroup = "QR Screenshot"
                 upgradeUuid = "eb5544b4-2b0c-4b73-a54e-409ec4b358b1"
+                iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/windows/icon.ico"))
+            }
+
+            macOS {
+                packageName = "QRScreenshot"
+                iconFile.set(File("$projectDir/src/jvmMain/resources/assets/icon/macos/icon.icns"))
+                bundleID = "com.cyan-namid09.qrscrennshot"
+                signing {
+                    sign.set(true)
+                    identity.set("Developer ID Application: Hiroyasu Niitsuma (2CMV7D36JC)")
+                }
+                notarization {
+                    appleID.set("cyan1109nh@icloud.com")
+                    password.set("@keychain:NOTARIZATION_PASSWORD")
+                }
             }
         }
     }
