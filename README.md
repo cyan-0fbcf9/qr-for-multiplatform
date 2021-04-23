@@ -9,7 +9,7 @@ QRコードに関するツールのマルチプロジェクト.
 ### QR Screenshot
 
 ディスプレイ上のQRコードをスクリーンショットするだけで読み取ることができるアプリ.  
-[ダウンロードはこちらから](https://20210419t155442-dot-qr-screenshot.uc.r.appspot.com/)
+[ダウンロードはこちらから](https://qr-screenshot.uc.r.appspot.com/)
 
 ### QRコードAPI
 
