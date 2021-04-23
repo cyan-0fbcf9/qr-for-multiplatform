@@ -18,3 +18,7 @@
 
 サーバーサイドの動作は**Ktor**だが, Webページの作成には [Vue](https://jp.vuejs.org/index.html) を利用している.  
 `web` ディレクトリがそのVueプロジェクトであり, **Ktor**と連携されている.
+
+## WebAPIリファレンス
+
+近日更新
