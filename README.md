@@ -14,7 +14,7 @@ QRコードに関するツールのマルチプロジェクト.
 ### QRコードAPI
 
 簡単にQRコードを作成できるWebAPI.  
-[使い方はこちらから]()
+[使い方はこちらから](https://github.com/cyan-0fbcf9/qr-for-multiplatform/blob/feature/%231_readme/server/README.md#webapi%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9)
 
 ## プロジェクト構成
 
