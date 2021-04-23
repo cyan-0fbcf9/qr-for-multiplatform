@@ -21,9 +21,9 @@ QRコードに関するツールのマルチプロジェクト.
 このプロジェクトでは, 以下の通りにモジュールを分けており, それぞれ違う役割を担っている.
 
 * common
-* compose
+* compose ([README](compose/README.md))
 * nativeCommon
-* server
+* server ([README](server/README.md))
 
 ### common
 
